@@ -36,7 +36,7 @@ ins_model = load_pickle_file(f"{model_dir}insult_model.pkl", "insult model")
 thr_model = load_pickle_file(f"{model_dir}threat_model.pkl", "threat model")
 ide_model = load_pickle_file(f"{model_dir}identity_hate_model.pkl", "identity hate model")
 
-class PredictToxicity(Resource):
+class ToxicityAnalysis(Resource):
     def get(self):
         """
         Predict the toxicity of the given text.
@@ -137,8 +137,8 @@ class PredictToxicity(Resource):
         except Exception as e:
             return jsonify({"error": f"Error during prediction: {e}"}), 500
 
-# Adding the resource to the API
-api.add_resource(PredictToxicity, "/predict")
+# Adding the resource to the API with the updated name and endpoint
+api.add_resource(ToxicityAnalysis, "/toxicityanalysis")
 
 if __name__ == "__main__":
     app.run(debug=True)
