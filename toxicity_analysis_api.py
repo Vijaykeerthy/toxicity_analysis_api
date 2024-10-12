@@ -17,21 +17,24 @@ def load_pickle_file(file_path, file_type):
         print(f"Error loading {file_type} from '{file_path}': {e}")
         return None
 
+# Define the path to the model directory
+model_dir = "model/"  # Ensure this folder is in the same directory as your script
+
 # Load the TF-IDF vectorizers for each category
-tox = load_pickle_file(r"toxic_vect.pkl", "toxic vectorizer")
-sev = load_pickle_file(r"severe_toxic_vect.pkl", "severe toxic vectorizer")
-obs = load_pickle_file(r"obscene_vect.pkl", "obscene vectorizer")
-ins = load_pickle_file(r"insult_vect.pkl", "insult vectorizer")
-thr = load_pickle_file(r"threat_vect.pkl", "threat vectorizer")
-ide = load_pickle_file(r"identity_hate_vect.pkl", "identity hate vectorizer")
+tox = load_pickle_file(f"{model_dir}toxic_vect.pkl", "toxic vectorizer")
+sev = load_pickle_file(f"{model_dir}severe_toxic_vect.pkl", "severe toxic vectorizer")
+obs = load_pickle_file(f"{model_dir}obscene_vect.pkl", "obscene vectorizer")
+ins = load_pickle_file(f"{model_dir}insult_vect.pkl", "insult vectorizer")
+thr = load_pickle_file(f"{model_dir}threat_vect.pkl", "threat vectorizer")
+ide = load_pickle_file(f"{model_dir}identity_hate_vect.pkl", "identity hate vectorizer")
 
 # Load the pickled Random Forest models for each category
-tox_model = load_pickle_file(r"toxic_model.pkl", "toxic model")
-sev_model = load_pickle_file(r"severe_toxic_model.pkl", "severe toxic model")
-obs_model = load_pickle_file(r"obscene_model.pkl", "obscene model")
-ins_model = load_pickle_file(r"insult_model.pkl", "insult model")
-thr_model = load_pickle_file(r"threat_model.pkl", "threat model")
-ide_model = load_pickle_file(r"identity_hate_model.pkl", "identity hate model")
+tox_model = load_pickle_file(f"{model_dir}toxic_model.pkl", "toxic model")
+sev_model = load_pickle_file(f"{model_dir}severe_toxic_model.pkl", "severe toxic model")
+obs_model = load_pickle_file(f"{model_dir}obscene_model.pkl", "obscene model")
+ins_model = load_pickle_file(f"{model_dir}insult_model.pkl", "insult model")
+thr_model = load_pickle_file(f"{model_dir}threat_model.pkl", "threat model")
+ide_model = load_pickle_file(f"{model_dir}identity_hate_model.pkl", "identity hate model")
 
 class PredictToxicity(Resource):
     def get(self):
