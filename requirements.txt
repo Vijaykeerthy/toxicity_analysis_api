@@ -1,0 +1,7 @@
+flask
+flasgger
+flask_restful
+gunicorn
+pyairtable
+pickle
+scikit-learn
